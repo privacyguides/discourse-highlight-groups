@@ -1,0 +1,5 @@
+group_list:
+  default: "verified,#7cba40,1px,text|"
+  type: "list"
+  list_type: "simple"
+  description: 'Enter comma-delimited configuration for categories, in the format "group,color,border weight,title format". Color in format #123456. Title format can be text to change the color of the user title or box to create a colored background behind the user title.'

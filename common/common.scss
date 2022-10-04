@@ -1,0 +1,51 @@
+@function str-split($str, $substr) {
+  $nList: ();
+
+  @while str-index("#{$str}", "#{$substr}") != null {
+    @if (str-index("#{$str}", "#{$substr}") > 1) {
+      $nList: append(
+        $nList,
+        str-slice("#{$str}", 1, str-index("#{$str}", "#{$substr}") - 1)
+      );
+    }
+
+    $str: str-slice(
+      "#{$str}",
+      str-index("#{$str}", "#{$substr}") + 1,
+      str-length("#{$str}")
+    );
+  }
+
+  @if (str-slice("#{$str}", 1, str-length("#{$str}")) != "") {
+    $nList: append($nList, str-slice("#{$str}", 1, str-length("#{$str}")));
+  }
+
+  @return $nList;
+}
+
+$split-values: str-split(#{$group_list}, "|");
+
+@each $value in $split-values {
+  $list: str-split($value, ",");
+  $group: nth($list, 1);
+
+  .topic-post.group-#{$group} {
+    border-top: unquote(nth($list, 3)) solid unquote(nth($list, 2));
+  }
+
+  @if nth($list, 4) == "box" {
+    .names {
+      .#{$group} ~ .user-title a, .#{$group} ~ .user-title {
+        background: unquote(nth($list, 2)) !important;
+        color: black;
+        padding: 3px 5px;
+      }
+    }
+  } @else if nth($list, 4) == "text" {
+    .#{$group} ~ .user-title a, .#{$group} ~ .user-title {
+      color: unquote(nth($list, 2));
+      font-weight: 500;
+    }
+  }
+
+}

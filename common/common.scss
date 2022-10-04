@@ -29,7 +29,7 @@ $split-values: str-split(#{$group_list}, "|");
   $list: str-split($value, ",");
   $group: nth($list, 1);
 
-  .topic-post.group-#{$group} {
+  .topic-post.group-#{$group} .topic-body, .topic-post.group-#{$group} .topic-avatar {
     border-top: unquote(nth($list, 3)) solid unquote(nth($list, 2));
   }
 

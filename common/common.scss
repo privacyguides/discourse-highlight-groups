@@ -35,14 +35,14 @@ $split-values: str-split(#{$group_list}, "|");
 
   @if nth($list, 4) == "box" {
     .names {
-      .#{$group} ~ .user-title a, .#{$group} ~ .user-title {
+      .#{$group} ~ .user-title a, .user-title--#{$group} {
         background: unquote(nth($list, 2)) !important;
         color: black;
         padding: 3px 5px;
       }
     }
   } @else if nth($list, 4) == "text" {
-    .#{$group} ~ .user-title a, .#{$group} ~ .user-title {
+    .#{$group} ~ .user-title a, .user-title--#{$group} {
       color: unquote(nth($list, 2));
       font-weight: 500;
     }

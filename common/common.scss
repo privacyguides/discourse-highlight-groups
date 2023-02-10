@@ -35,7 +35,7 @@ $split-values: str-split(#{$group_list}, "|");
 
   @if nth($list, 4) == "box" {
     .names {
-      .#{$group} ~ .user-title a, .user-title--#{$group} {
+      .#{$group} ~ .user-title a, .user-title--#{$group} a {
         background: unquote(nth($list, 2)) !important;
         color: black;
         padding: 3px 5px;

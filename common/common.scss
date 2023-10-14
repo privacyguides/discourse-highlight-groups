@@ -35,17 +35,49 @@ $split-values: str-split(#{$group_list}, "|");
 
   @if nth($list, 4) == "box" {
     .names {
-      .#{$group} ~ .user-title a, .user-title--#{$group} a {
+      .#{$group} ~ .user-title, .user-title--#{$group} {
         background: unquote(nth($list, 2)) !important;
-        color: black;
-        padding: 3px 5px;
+        padding: 1px 6px 0 6px;
+        color: #333;
+        font-size: 0.7em;
+        border-radius: 2px;
+        text-transform: uppercase;
+        font-weight: 800;
+      }
+      .#{$group} ~ .user-title a, .user-title--#{$group} a {
+        color: #333;
       }
     }
   } @else if nth($list, 4) == "text" {
-    .#{$group} ~ .user-title a, .user-title--#{$group} {
+    .#{$group} ~ .user-title a, .user-title--#{$group}, .topic-post.group-#{$group} .names span.user-title {
       color: unquote(nth($list, 2));
-      font-weight: 500;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.7em;
+      padding: 1px 0 0 0;
     }
   }
+}
 
+.names .new_user a, .names .user-title, .names .user-title a {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.7em;
+  padding-top: 1px;
+}
+
+@if #{$moderator_flair} == "true" {
+  .names .first.moderator:after {
+    content: "#{$moderator_flair_text}";
+    background-color: #{$moderator_flair_color};
+    padding: 1px 6px 0 6px;
+    color: #{$moderator_flair_text_color};
+    font-size: 0.7em;
+    border-radius: 2px;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-left: 6px;
+    position: relative;
+    bottom: 1px;
+  }
 }

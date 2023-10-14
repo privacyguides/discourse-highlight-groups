@@ -3,3 +3,17 @@ group_list:
   type: "list"
   list_type: "simple"
   description: 'Enter comma-delimited configuration for categories, in the format "group,color,border weight,title format". Color in format #123456. Title format can be text to change the color of the user title or box to create a colored background behind the user title.'
+
+moderator_flair: 
+  default: false
+  type: "bool"
+  description: "Enable to display a text flair to the right of the moderator shield icon"
+moderator_flair_text:
+  default: "Moderator"
+  type: "string"
+moderator_flair_color:
+  default: "#e21d1d"
+  type: "string"
+moderator_flair_text_color:
+  default: "#ffffff"
+  type: "string"
